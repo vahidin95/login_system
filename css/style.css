@@ -54,6 +54,11 @@ body{
     }
 }
 .image{
-  width: 100px!important;
-  height: 100px!important;
+  width: 200px!important;
+  height: 200px!important;
+}
+
+.vertical-line {
+  border-left: 6px solid #428bca;
+  height: 500px;
 }

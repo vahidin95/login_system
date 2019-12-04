@@ -86,3 +86,10 @@
 						</div>';
 					}
 		}
+
+		//Session check
+		if (isset($_GET['session_expired'])) {
+			echo '<div class="alert alert-warning" role="alert">
+							Your session was expired, You have to login again.
+						</div>';
+		}

@@ -1,66 +1,31 @@
 <?php
 include_once('dbh.inc.php');
-
+$now = time();
+if ($now > $_SESSION['expired']) {
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php?login=session_expired");
+}
 
 ?>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title text-center">Welcome to this page</h3>
+<div class="jumbotron row">
+  <h3 class="text-center">User informations <small>Personal informations</small></h3>
+  <div class="vertical-line col-md-7">
+    <ul style="list-style-type:circle;">
+      <br><br><br><br><br>
+      <li><p><small>User first: </small><b><?php echo $_SESSION['u_first']?></b></p></li>
+      <li><p><small>User last: </small><b><?php echo $_SESSION['u_last']?></b></p></li>
+      <li><p><small>User uid: </small><b><?php echo $_SESSION['u_uid']?></b></p></li>
+      <li><p><small>User email: </small><b><?php echo $_SESSION['u_email']?></b></p></li>
+    </ul >
   </div>
-  <div class="panel-body">
-    this is the start of a good website
+  <div class="col-md-4">
+    <h3>Hello, world!</h3>
+    <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
+      <input type="file" name="file" required><br>
+      <?php include_once('check.php'); include('functions/select_profile.php');?>
+      <p><a class="btn btn-primary btn-lg" type="submit" name="submit" role="button">UPLOAD</a></p>
+    </form>
   </div>
+
 </div>
-<form method="POST" action="includes/upload.php" enctype="multipart/form-data">
-  <input type="file" name="file" required><br>
-  <?php include_once('check.php'); ?>
-  <button type="submit" name="submit">UPLOAD</button>
-</form>
-
-<?php
-
-
-	$sql = "SELECT * FROM users";
-	$result = mysqli_query($conn, $sql);
-	$userId = $_SESSION['u_id'];
-	$sqlImages = "SELECT * FROM users WHERE user_id='$userId'";
-	$resultImg = mysqli_query($conn, $sqlImages);
-	if (mysqli_num_rows($result) > 0) {
-
-	while ($row = mysqli_fetch_assoc($resultImg)) {
-		echo "<div>";
-    $uid = $row['user_id'];
-		if ($row['user_status'] == 0) {
-      //die(var_dump($uid));
-			echo "<img src='../uploads/profile$uid.jpg' class='thumbnail image'/>";
-		}else{
-			echo "<img src='../uploads/profiledefault.jpg' class='thumbnail image' />";
-      $setstatus = "UPDATE users SET user_status=1 WHERE user_id='$uid'";
-		}
-		echo "</div>";
-	}
-}
-
-/*
-$id  = $_SESSION['u_uid'];
-$sql = "SELECT * FROM users";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-	if ($row = mysqli_fetch_assoc($result)) {
-		$id = $row['user_id'];
-		$sqlImg = "SELECT * FROM users WHERE user_id='$id'";
-		$resultImg = mysqli_query($conn, $sqlImg);
-		if($rowImg = mysqli_fetch_assoc($resultImg)) {
-			echo "<div>";
-			if ($rowImg['user_status'] == 0) {
-				echo "<img src='../uploads/profile".$id.".jpg'/>";
-				}else{
-					echo "<img src='../uploads/profiledefault.jpg'/>";
-				}
-					echo "</div>";
-					echo $_SESSION['u_first'];
-				}
-	}
-}
-*/
-?>

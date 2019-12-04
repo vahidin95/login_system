@@ -30,6 +30,9 @@ if (isset($_POST['submit'])) {
 					$_SESSION['u_last'] = $row['user_last'];
 					$_SESSION['u_uid'] = $row['user_uid'];
 					$_SESSION['u_email'] = $row['user_email'];
+					$_SESSION['start'] = time();
+					$_SESSION['expired'] = $_SESSION['start'] + (120 * 60);
+
 					header("Location: ../home.php?login=success");
 					exit();
 				}
