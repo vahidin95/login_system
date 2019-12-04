@@ -3,7 +3,14 @@ include_once('dbh.inc.php');
 
 
 ?>
-
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Welcome to this page</h3>
+  </div>
+  <div class="panel-body">
+    this is the start of a good website
+  </div>
+</div>
 <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
   <input type="file" name="file" required><br>
   <?php include_once('check.php'); ?>
@@ -22,13 +29,13 @@ include_once('dbh.inc.php');
 
 	while ($row = mysqli_fetch_assoc($resultImg)) {
 		echo "<div>";
+    $uid = $row['user_id'];
 		if ($row['user_status'] == 0) {
-      $uid = $row['user_id'];
       //die(var_dump($uid));
-			echo "<img src='../uploads/profile$uid.jpg'/>";
+			echo "<img src='../uploads/profile$uid.jpg' class='thumbnail image'/>";
 		}else{
-			echo "<img src='../uploads/profiledefault.jpg'/>";
-      $setstatus = "UPDATE users SET user_status=1 WHERE user_id='$id'";
+			echo "<img src='../uploads/profiledefault.jpg' class='thumbnail image' />";
+      $setstatus = "UPDATE users SET user_status=1 WHERE user_id='$uid'";
 		}
 		echo "</div>";
 	}
