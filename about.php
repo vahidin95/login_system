@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php include("partials/header.php"); ?>
+<?php session_start(); include("partials/header.php"); ?>
   <body>
     <?php include("partials/navbar.php"); ?>
     <div class="container">

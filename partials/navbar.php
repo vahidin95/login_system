@@ -1,3 +1,4 @@
+<?php $u_id = $_SESSION['u_id'];?>
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,18 +11,21 @@
       </button>
       <a class="navbar-brand" href="../index.php">Exercise</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
+<?php
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
+ ?>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/home.php">Home</a></li>
-        <li><a href="/about.php">About</a></li>
+        <li class="<?= ($activePage == 'home') ? 'active':''; ?>"><a href="/home.php">Home</a></li>
+        <li class="<?= ($activePage == 'about') ? 'active':''; ?>"><a href="/about.php">About</a></li>
+        <?= ($_SESSION['u_uid'] == "vaha123") ? "<li class='active'><a href='/list.php'>List</a></li>": "";?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
 
-        if (!isset($_SESSION['u_id'])) {
-          echo ' <li><p class="navbar-text">Already have an account?</p></li>
+        if (!isset($u_id)) {?>
+                <li><p class="navbar-text">Already have an account?</p></li>
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign in</b> <span class="caret"></span></a>
                       <ul id="login-dp" class="dropdown-menu">
@@ -60,15 +64,15 @@
                            </div>
                         </li>
                       </ul>
-                    </li>';
-            }elseif (isset($_SESSION['u_id'])) {
-              echo '
+                    </li>
+            <?php
+          }else{
+              $u_first = $_SESSION['u_first'];
+               ?>
                   <form method="POST" action="../includes/logout.php">
                     <input type="submit" name="submit" value="Logout" class="form-control" style="margin-top:10%;"/>
-                  </form>';
-            }
-
-        ?>
+                  </form><?php
+            }?>
 
       </ul><!-- end of right panel -->
     </div><!-- /.navbar-collapse -->

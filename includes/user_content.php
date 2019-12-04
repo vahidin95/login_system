@@ -13,10 +13,10 @@ if ($now > $_SESSION['expired']) {
   <div class="vertical-line col-md-7">
     <ul style="list-style-type:circle;">
       <br><br><br><br><br>
-      <li><p><small>User first: </small><b><?php echo $_SESSION['u_first']?></b></p></li>
-      <li><p><small>User last: </small><b><?php echo $_SESSION['u_last']?></b></p></li>
-      <li><p><small>User uid: </small><b><?php echo $_SESSION['u_uid']?></b></p></li>
-      <li><p><small>User email: </small><b><?php echo $_SESSION['u_email']?></b></p></li>
+      <li><p><small>User first: </small><span class="label label-primary"> <?php echo $_SESSION['u_first']; ?></span></p></li>
+      <li><p><small>User last: </small><span class="label label-primary"> <?php echo $_SESSION['u_last']; ?></span></b></p></li>
+      <li><p><small>User uid: </small><span class="label label-primary"> <?php echo $_SESSION['u_uid']; ?></span></b></p></li>
+      <li><p><small>User email: </small><span class="label label-primary"> <?php echo $_SESSION['u_email']; ?></span></b></p></li>
     </ul >
   </div>
   <div class="col-md-4">
@@ -24,7 +24,7 @@ if ($now > $_SESSION['expired']) {
     <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
       <input type="file" name="file" required><br>
       <?php include_once('check.php'); include('functions/select_profile.php');?>
-      <p><a class="btn btn-primary btn-lg" type="submit" name="submit" role="button">UPLOAD</a></p>
+      <p><button type="submit" name="submit" class="btn btn-primary btn-lg" >UPLOAD</button></p>
     </form>
   </div>
 

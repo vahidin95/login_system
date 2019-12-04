@@ -1,3 +1,1 @@
-$(document).ready(function(){
-console.log('something');  
-})
+$(document).ready(function(){ console.log('something');})

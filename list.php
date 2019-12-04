@@ -8,9 +8,9 @@
       <div class="container">
       <?php if (!isset($_SESSION['u_uid'])) {
       	echo "You must login to see this page!";
-      } else{?>
-      	<span class="label label-primary"> <?php echo $_SESSION['u_first']; ?></span>
-        <?php include('includes/user_content.php');
+      } else{
+      	echo $_SESSION['u_uid'] ." are our admin Selam alejkum!";
+      	include('admin/admin_contect.php');
 
       }
       ?>
