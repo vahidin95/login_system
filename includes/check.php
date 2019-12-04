@@ -1,4 +1,4 @@
-<?php 
+<?php
  		/*$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
  		if(strpos($fullUrl, "singup=empty")){
@@ -62,4 +62,27 @@
 			  You are successfully registred on this site!
 			</div>';
 			}
+		}
+
+
+		// Check if User input corect file.
+		if(isset($_GET['upload']) ) {
+
+				if ($_GET['upload'] == "success") {
+					echo '<div class="alert alert-success" role="alert">
+							You succefully upload your image!
+				</div>';
+			}elseif ($_GET['upload'] == "errorbig") {
+				echo '<div class="alert alert-warning" role="alert">
+							Your file is too big! Please try with smaller file.
+						</div>';
+			}elseif ($_GET['upload'] == "error_") {
+				echo '<div class="alert alert-warning" role="alert">
+							Your have an error in your file!
+						</div>';
+			}elseif ($_GET['upload'] == "typeerror") {
+				echo '<div class="alert alert-warning" role="alert">
+							Your file must be with these extensions .jpg .jpeg .png
+						</div>';
+					}
 		}

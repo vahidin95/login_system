@@ -20,7 +20,7 @@ $pwd = test_input($_POST['pwd']);
 
 //$_SESSION['email'] = $_POST['email'];
 
-//$sql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd) 
+//$sql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd)
 //VALUES ('?', '?', '?', '?', '?') ;";
 
 
@@ -59,29 +59,32 @@ if (empty($first) || empty($last) || empty($email) || empty($uid) || empty($pwd)
 						header("Location: ../index.php?singup=passthree&first=$first&last=$last&email=$email&uid=$uid");
 					exit();
 					}else{
-					
+
 					$hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 					//Saving data!
-					$stmt = $conn->prepare("INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd) 
+					$stmt = $conn->prepare("INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd)
 					VALUES (?,?,?,?,?)");
 					$stmt->bind_param("sssss", $first, $last, $email, $uid, $hashedpwd);
-					$stmt->execute(); 
-					//die(var_dump($id));
-					/*$stmt = $conn->prepare("INSERT INTO userprofile (userprofile_userid, userprofile_status) VALUES (?,?)");
-					$stmt->bind_param("ss", $id, 1);
-					$stmt->execute();*/
+					$stmt->execute();
+					//die(var_dump($uid));
 					$sql = "SELECT * FROM users";
 					$result = mysqli_query($conn, $sql);
 					if (mysqli_num_rows($result) > 0) {
 						while ($row = mysqli_fetch_assoc($result)) {
-						//die(var_dump($row['user_uid']));
+
+              $_SESSION['u_id'] = $row['user_id'];
+    					$_SESSION['u_first'] = $row['user_first'];
+    					$_SESSION['u_last'] = $row['user_last'];
+    					$_SESSION['u_uid'] = $row['user_uid'];
+    					$_SESSION['u_email'] = $row['user_email'];
+
 						}
 					}else{
 						die(var_dump("error!"));
 					}
-					
-					header("Location: ../index.php?singup=success");
+          //die(var_dump($_SESSION['u_id']));
+					header("Location: ../home.php?singup=success");
 					}
 				}
 			}

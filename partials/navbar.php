@@ -34,7 +34,7 @@
         <li><a href="/about.php">About</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <?php 
+        <?php
 
         if (!isset($_SESSION['u_id'])) {
           echo ' <li><p class="navbar-text">Already have an account?</p></li>

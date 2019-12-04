@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php include("partials/header.php"); include('includes/dbh.inc.php'); ?>
+<?php include("partials/header.php"); ?>
   <body>
     <?php include("partials/navbar.php"); ?>
     <div class="container">
@@ -8,7 +8,7 @@
         <br>
         <?php include('includes/check.php'); ?>
         <form method="POST" action="includes/singup.php">
-          <?php 
+          <?php
             echo "<input type='hidden' name='id'/>";
             if (isset($_GET['first'])) {
               $first = $_GET['first'];
@@ -41,7 +41,7 @@
             <input name="email" type="text" class="form-control" placeholder="Enter name" value="'.$email.'">
           </div>';
             }else {
-              echo ' <div class="form-group"> 
+              echo ' <div class="form-group">
             <label>Email:</label>
             <input name="email" type="text" class="form-control" placeholder="Enter email">
           </div>';
@@ -90,5 +90,6 @@ foreach ($datas[0] as $data) {
 
 
     </div>
+    <?php include('partials/footer.php'); ?>
   </body>
 </html>
