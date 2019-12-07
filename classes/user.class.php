@@ -1,13 +1,11 @@
 <?php
 
 /**
- *
+ * User class contain crud operacion
  */
-class User
+class ClassName extends Controller
 {
 
-  function __construct()
-  {
-    // code...
-  }
+public $test;
+
 }

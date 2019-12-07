@@ -1,4 +1,4 @@
-<?php $u_id = $_SESSION['u_id'];?>
+<?php if(isset($_SESSION['u_id'])) { $u_id = $_SESSION['u_id'];}?>
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,7 +19,7 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
       <ul class="nav navbar-nav">
         <li class="<?= ($activePage == 'home') ? 'active':''; ?>"><a href="/home.php">Home</a></li>
         <li class="<?= ($activePage == 'about') ? 'active':''; ?>"><a href="/about.php">About</a></li>
-        <?= ($_SESSION['u_uid'] == "vaha123") ? "<li class='active'><a href='/list.php'>List</a></li>": "";?>
+        <?= (isset($_SESSION['u_uid']) == "vaha123") ? "<li class='active'><a href='/list.php'>List</a></li>":"";?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
