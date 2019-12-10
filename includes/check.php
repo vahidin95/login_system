@@ -88,3 +88,12 @@
 						</div>';
 			}
 		}
+
+		// Access denied for all who type url directly
+		if (isset($_GET['access'])) {
+			if ($_GET['access'] == "denied") {
+				echo '<div class="alert alert-warning" role="alert">
+							You do not have permission to do that!
+						</div>';
+				 }
+		}

@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 		}else{
 			if ($row = mysqli_fetch_assoc($result)){
 				$dehechpwd = password_verify($pwd, $row['user_pwd']);
-
+				
 				if ($dehechpwd == false) {
 					header("Location: ../index.php?login=error");
 					exit();

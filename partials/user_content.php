@@ -22,9 +22,10 @@ if ($now > $_SESSION['expired']) {
   </div>
   <div class="col-md-4">
     <h3>Hello, world!</h3>
+    <?php include_once('includes/check.php');?>
     <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
       <input type="file" name="file" required><br>
-      <?php include_once('includes/check.php'); include('functions/select_profile.php');?>
+      <?php include('functions/select_profile.php');?>
       <p><button type="submit" name="submit" class="btn btn-primary btn-lg" >UPLOAD</button></p>
     </form>
   </div>

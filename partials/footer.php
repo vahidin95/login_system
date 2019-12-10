@@ -8,3 +8,4 @@
 //include('../js/javascript.php');
 
 echo "<h1>This is a footer!</h1>";
+?>

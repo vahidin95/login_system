@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
-<?php session_start(); include("partials/header.php");  ?>
+<?php
+session_start();
+include("partials/header.php");
+//die(var_dump($_SESSION['u_uid']));
+if ($_SESSION['u_uid'] != "vaha123") {
+  header('Location: home.php?access=denied');
+}
+?>
   <body>
   <div class="container">
     <div class="row">

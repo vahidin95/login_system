@@ -49,7 +49,7 @@ echo "<div class='row'>";
               <p class="text-center">Email addr: <?= $row['user_email']?></p>
               <p class="text-center">User uid: <?= $row['user_uid']?></p>
             </div>
-            <a href="/views/admin/edit.php?id=<?= $row['user_id']?>" class="btn btn-primary">Edit user</a>
+            <a href="edit.php?id=<?= $row['user_id']?>" class="btn btn-primary">Edit user</a>
             <a href="/functions/delete.php?id=<?= $row['user_id']?>" class="btn btn-danger pull-right">Delete user</a>
           </div>
         </div> <?php

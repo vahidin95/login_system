@@ -78,6 +78,9 @@ if (empty($first) || empty($last) || empty($email) || empty($uid) || empty($pwd)
     					$_SESSION['u_last'] = $row['user_last'];
     					$_SESSION['u_uid'] = $row['user_uid'];
     					$_SESSION['u_email'] = $row['user_email'];
+              $_SESSION['u_pwd'] = $row['user_pwd'];
+              $_SESSION['start'] = time();
+    					$_SESSION['expired'] = $_SESSION['start'] + (120 * 60);
 
 						}
 					}else{
