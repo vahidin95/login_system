@@ -13,6 +13,7 @@ if ($now > $_SESSION['expired']) {
   <div class="vertical-line col-md-7">
     <ul style="list-style-type:circle;">
       <br><br><br><br><br>
+      <li><p><small>User id: </small><span class="label label-primary"> <?php echo $_SESSION['u_id']; ?></span></p></li>
       <li><p><small>User first: </small><span class="label label-primary"> <?php echo $_SESSION['u_first']; ?></span></p></li>
       <li><p><small>User last: </small><span class="label label-primary"> <?php echo $_SESSION['u_last']; ?></span></b></p></li>
       <li><p><small>User uid: </small><span class="label label-primary"> <?php echo $_SESSION['u_uid']; ?></span></b></p></li>

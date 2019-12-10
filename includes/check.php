@@ -1,26 +1,4 @@
 <?php
- 		/*$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
- 		if(strpos($fullUrl, "singup=empty")){
- 		echo '<div class="alert alert-danger" role="alert">
-			  You did not fill all data in inputs!
-			</div>';
-		}elseif(strpos($fullUrl, "singup=char")){
- 		echo '<div class="alert alert-danger" role="alert">
-			  You fill incorect characters in name and lastname!!
-			</div>';
- 		}elseif(strpos($fullUrl, "singup=email")){
- 		echo '<div class="alert alert-danger" role="alert">
-			  You fill incorect email!
-			</div>';
-		}elseif(strpos($fullUrl, "singup=success")){
- 		echo '<div class="alert alert-success" role="alert">
-			  Your form are saved successfully!
-			</div>';
-		}else{
-		//
-	}*/
-
 
 		if (!isset($_GET['singup'])) {
 			//
@@ -88,21 +66,25 @@
 		}
 
 		//Session check
-		if (isset($_GET['session_expired'])) {
-			echo '<div class="alert alert-warning" role="alert">
-							Your session was expired, You have to login again.
-						</div>';
+		if (isset($_GET['login'])) {
+			if ($_GET['login'] == "session_expired") {
+				echo '<div class="alert alert-warning" role="alert">
+								Your session was expired, You have to login again.
+							</div>';
+			}
 		}
 
 		//delete user check
 
-		if (isset($_GET['delete'] == "success")) {
-			echo '<div class="alert alert-success" role="alert">
-						You succefully deleted user!
-					</div>';
-		}elseif (isset($_GET['delete'] == "error")) {
-			echo '<div class="alert alert-warning" role="alert">
-						Something went wrong while deleting this user!
-						Please try again!
-					</div>';
+		if (isset($_GET['delete'])) {
+			if ($_GET['delete'] == "success") {
+				echo '<div class="alert alert-success" role="alert">
+							You succefully deleted user!
+						</div>';
+			}elseif ($_GET['delete'] == "error") {
+				echo '<div class="alert alert-warning" role="alert">
+							Something went wrong while deleting this user!
+							Please try again!
+						</div>';
+			}
 		}
