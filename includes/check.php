@@ -93,3 +93,16 @@
 							Your session was expired, You have to login again.
 						</div>';
 		}
+
+		//delete user check
+
+		if (isset($_GET['delete'] == "success")) {
+			echo '<div class="alert alert-success" role="alert">
+						You succefully deleted user!
+					</div>';
+		}elseif (isset($_GET['delete'] == "error")) {
+			echo '<div class="alert alert-warning" role="alert">
+						Something went wrong while deleting this user!
+						Please try again!
+					</div>';
+		}
