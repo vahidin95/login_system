@@ -12,6 +12,7 @@ while ($row = mysqli_fetch_assoc($resultImg)) {
   }else{
     echo "<img src='../uploads/profiledefault.jpg' class='thumbnail image' />";
     $setstatus = "UPDATE users SET user_status=1 WHERE user_id='$uid'";
+    mysqli_query($conn, $setstatus);
   }
   echo "</div>";
 }

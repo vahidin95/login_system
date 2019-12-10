@@ -10,7 +10,7 @@
       	echo "You must login to see this page!";
       } else{
       	echo $_SESSION['u_uid'] ." are our admin Selam alejkum!";
-      	include('admin/admin_contect.php');
+      	include('partials/admin_contect.php');
 
       }
       ?>

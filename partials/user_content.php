@@ -1,5 +1,5 @@
 <?php
-include_once('dbh.inc.php');
+include_once('includes/dbh.inc.php');
 $now = time();
 if ($now > $_SESSION['expired']) {
     session_unset();
@@ -23,7 +23,7 @@ if ($now > $_SESSION['expired']) {
     <h3>Hello, world!</h3>
     <form method="POST" action="includes/upload.php" enctype="multipart/form-data">
       <input type="file" name="file" required><br>
-      <?php include_once('check.php'); include('functions/select_profile.php');?>
+      <?php include_once('includes/check.php'); include('functions/select_profile.php');?>
       <p><button type="submit" name="submit" class="btn btn-primary btn-lg" >UPLOAD</button></p>
     </form>
   </div>

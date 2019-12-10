@@ -10,7 +10,7 @@
       	echo "You must login to see this page!";
       } else{?>
       	<span class="label label-primary"> <?php echo $_SESSION['u_first']; ?></span>
-        <?php include('includes/user_content.php');
+        <?php include('partials/user_content.php');
 
       }
       ?>
